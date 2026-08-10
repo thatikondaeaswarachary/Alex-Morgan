@@ -4,22 +4,86 @@ Welcome to the **PHP & MySQL Full Stack Web Development** project repository. Th
 - **Task 1 (Days 1–12)**: Foundation, Environment Setup & Responsive Personal Portfolio Website.
 - **Task 2 (Days 13–24)**: Interactive UI & Frontend Development (Bootstrap 5, JS Validation, Real-time AJAX PHP Endpoints & Responsive Login/Registration UI).
 - **Task 3 (Days 25–36)**: Backend Development & Database Integration (Database Normalization & ER Diagram, User CRUD Operations, Session Auth & RBAC, Security Prepared Statements, and Profile Picture Upload).
+- **Task 4 (Days 37–48)**: Real-World Full Stack Project (DevGear E-Commerce Platform, Products & Orders Database Setup with Foreign Keys & Indexes, Customer Orders Dashboard, AJAX Cart/Checkout Engine, Admin Analytics Dashboard, and Product CRUD).
 
 ---
 
 ## 📋 Table of Contents
-1. [Task 3 Specification Overview](#task-3-specification-overview)
-2. [Task 2 Specification Overview](#task-2-specification-overview)
-3. [Environment Setup (XAMPP / WAMP / Apache / MySQL)](#1-environment-setup)
-4. [phpMyAdmin & MySQL Database Management](#2-phpmyadmin--mysql-database-management)
-5. [Database Normalization & ER Diagram](#database-normalization--er-diagram)
+1. [Task 4 Specification Overview](#task-4-specification-overview)
+2. [Task 3 Specification Overview](#task-3-specification-overview)
+3. [Task 2 Specification Overview](#task-2-specification-overview)
+4. [Environment Setup (XAMPP / WAMP / Apache / MySQL)](#1-environment-setup)
+5. [Database ER Diagram & Performance Indexes](#database-er-diagram--performance-indexes)
 6. [Course Topics Covered](#4-course-topics-covered)
-   - [User Management CRUD Operations](#user-management-crud-operations)
-   - [Session & Role-Based Authentication (RBAC)](#session--role-based-authentication-rbac)
-   - [Security & Prepared Statements](#security--prepared-statements)
-   - [Profile Management & Avatar Upload](#profile-management--avatar-upload)
+   - [Storefront & Search/Filter Catalog](#storefront--searchfilter-catalog)
+   - [AJAX Cart & Order Checkout Engine](#ajax-cart--order-checkout-engine)
+   - [Admin Analytics & Business Intelligence](#admin-analytics--business-intelligence)
+   - [Product Management CRUD & Order Status Updater](#product-management-crud--order-status-updater)
 7. [Project Structure](#5-project-structure)
 8. [Running the Project Locally](#6-running-the-project-locally)
+
+---
+
+## Task 4 Specification Overview (Days 37–48)
+
+**Objective**: Apply learned skills to develop a functional, real-world web application with advanced features.
+
+### Key Steps Completed:
+1. **Project Planning & E-Commerce Architecture**:
+   - DevGear Tech Store & Business Intelligence Dashboard.
+   - Requirements: User Roles (Admin/User), Catalog Search/Filter, Cart Checkout, Customer Orders Tracking, Admin Revenue Analytics, Product CRUD.
+2. **Database Setup with Foreign Keys & Performance Indexes**:
+   - `categories`, `products`, `orders`, `order_items`, `users`, `roles` relational tables.
+   - Composite Index `idx_products_cat_price` on `products (category_id, price)` for instant filtering.
+   - Index `idx_orders_user` on `orders (user_id)` and `idx_orders_status` on `orders (status)`.
+3. **Core Storefront & Customer Dashboard**:
+   - Storefront catalog (`store.php`) featuring live search, category filter (Laptops, Keyboards, Displays, Audio), and AJAX shopping cart modal.
+   - Cart/Checkout API (`cart_handler.php`) placing orders using prepared statements.
+   - Customer Order Dashboard (`user_orders.php`) displaying real-time order status badges ('Pending', 'Processing', 'Completed').
+   - Password reset workflow (`forgot_password.php`).
+4. **Admin Panel & Business Intelligence**:
+   - Admin Analytics Dashboard (`admin_dashboard.php`) displaying Gross Revenue ($), Total Orders, Catalog Count, and Active Users.
+   - Product Management CRUD (Create, Edit, Delete with popup modal confirmation).
+   - Order Status Manager updating customer order progress.
+
+---
+
+## Database ER Diagram & Performance Indexes
+
+```
++------------------+       +-------------------+       +--------------------+
+|    categories    |       |     products      |       |    order_items     |
++------------------+       +-------------------+       +--------------------+
+| id (PK)          |<------| id (PK)           |<------| id (PK)            |
+| category_name    |  1:N  | category_id (FK)  |  1:N  | order_id (FK)      |
+| slug             |       | title             |       | product_id (FK)    |
++------------------+       | price             |       | quantity           |
+                           | stock_qty         |       | unit_price         |
+                           +-------------------+       +--------------------+
+                                 INDEXES                       ^
+                      `idx_products_cat_price`                 | 1:N
+                                                               |
++------------------+       +-------------------+               |
+|      roles       |       |       users       |               |
++------------------+       +-------------------+               |
+| id (PK)          |<------| id (PK)           |               |
+| role_name        |  1:N  | role_id (FK)      |               |
++------------------+       +-------------------+               |
+                                     | 1:N                     |
+                                     v                         |
+                           +-------------------+               |
+                           |      orders       |---------------+
+                           +-------------------+
+                           | id (PK)           |
+                           | user_id (FK)      |
+                           | order_number      |
+                           | total_amount      |
+                           | status            |
+                           +-------------------+
+                                 INDEXES
+                           `idx_orders_user`
+                           `idx_orders_status`
+```
 
 ---
 
@@ -46,32 +110,6 @@ Welcome to the **PHP & MySQL Full Stack Web Development** project repository. Th
 5. **Profile Management**:
    - Edit Profile page (`profile.php`).
    - Profile picture upload into `assets/uploads/` with file extension (.jpg, .png, .webp), MIME type, and 2MB file size validation.
-
----
-
-## Database Normalization & ER Diagram
-
-```
-+-----------------------------------+       +-----------------------------------+
-|               roles               |       |               users               |
-+-----------------------------------+       +-----------------------------------+
-| id (PK, INT, AUTO_INCREMENT)      |<------| id (PK, INT, AUTO_INCREMENT)      |
-| role_name (VARCHAR 50, UNIQUE)    |   1:N | role_id (FK -> roles.id, INT)     |
-| description (VARCHAR 255)         |       | username (VARCHAR 50, UNIQUE)     |
-| created_at (TIMESTAMP)            |       | email (VARCHAR 100, UNIQUE)       |
-+-----------------------------------+       | password_hash (VARCHAR 255)       |
-                                            | full_name (VARCHAR 100)           |
-                                            | title (VARCHAR 100)               |
-                                            | phone (VARCHAR 30)                |
-                                            | bio (TEXT)                        |
-                                            | avatar_url (VARCHAR 255)          |
-                                            | created_at (TIMESTAMP)            |
-                                            +-----------------------------------+
-```
-
-- **1NF**: Atomic field values, primary keys defined.
-- **2NF**: No partial dependencies; non-key columns depend entirely on primary key `id`.
-- **3NF**: Role descriptors isolated into separate `roles` table eliminating transitive dependencies.
 
 ---
 
