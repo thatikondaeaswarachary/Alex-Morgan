@@ -1,60 +1,77 @@
-# PHP & MySQL Full Stack Web Development - Task 1 & Task 2
+# PHP & MySQL Full Stack Web Development - Complete Course Deliverables
 
 Welcome to the **PHP & MySQL Full Stack Web Development** project repository. This repository contains complete code deliverables for:
 - **Task 1 (Days 1–12)**: Foundation, Environment Setup & Responsive Personal Portfolio Website.
-- **Task 2 (Days 13–24)**: Interactive UI & Frontend Development (Bootstrap 5, JS Form Handling, Real-time AJAX PHP Endpoints & Responsive Login/Registration UI).
+- **Task 2 (Days 13–24)**: Interactive UI & Frontend Development (Bootstrap 5, JS Validation, Real-time AJAX PHP Endpoints & Responsive Login/Registration UI).
+- **Task 3 (Days 25–36)**: Backend Development & Database Integration (Database Normalization & ER Diagram, User CRUD Operations, Session Auth & RBAC, Security Prepared Statements, and Profile Picture Upload).
 
 ---
 
 ## 📋 Table of Contents
-1. [Task 2 Specification Overview](#task-2-specification-overview)
-2. [Environment Setup (XAMPP / WAMP / Apache / MySQL)](#1-environment-setup)
-3. [phpMyAdmin & MySQL Database Management](#2-phpmyadmin--mysql-database-management)
-4. [Git & GitHub Setup & Workflow](#3-git--github-setup--workflow)
-5. [Course Topics Covered](#4-course-topics-covered)
-   - [Bootstrap 5 Mastery & Custom Styling](#bootstrap-5-mastery--custom-styling)
-   - [JavaScript Form Handling & Validation](#javascript-form-handling--validation)
-   - [AJAX & PHP Async Data Processing](#ajax--php-async-data-processing)
-6. [Project Structure](#5-project-structure)
-7. [Running the Project Locally](#6-running-the-project-locally)
-8. [GitHub Pages Deployment Guide](#7-github-pages-deployment-guide)
+1. [Task 3 Specification Overview](#task-3-specification-overview)
+2. [Task 2 Specification Overview](#task-2-specification-overview)
+3. [Environment Setup (XAMPP / WAMP / Apache / MySQL)](#1-environment-setup)
+4. [phpMyAdmin & MySQL Database Management](#2-phpmyadmin--mysql-database-management)
+5. [Database Normalization & ER Diagram](#database-normalization--er-diagram)
+6. [Course Topics Covered](#4-course-topics-covered)
+   - [User Management CRUD Operations](#user-management-crud-operations)
+   - [Session & Role-Based Authentication (RBAC)](#session--role-based-authentication-rbac)
+   - [Security & Prepared Statements](#security--prepared-statements)
+   - [Profile Management & Avatar Upload](#profile-management--avatar-upload)
+7. [Project Structure](#5-project-structure)
+8. [Running the Project Locally](#6-running-the-project-locally)
 
 ---
 
-## Task 2 Specification Overview (Days 13–24)
+## Task 3 Specification Overview (Days 25–36)
 
-**Objective**: Create responsive, user-friendly, and interactive interfaces using HTML, CSS, JavaScript, and Bootstrap 5.
+**Objective**: Implement dynamic backend features with PHP and MySQL including authentication, CRUD operations, and security.
 
 ### Key Steps Completed:
-1. **Bootstrap 5 Mastery**:
-   - Grid System: `row`, `col-12`, `col-lg-6`, breakpoint responsiveness.
-   - Core Components: Responsive Navbar, Feature Showcase Carousel, Glassmorphism Cards, Quick Spec & Terms Modals, Animated Action Buttons.
-   - Display Utilities: `d-none`, `d-md-block`, `d-flex`, `flex-column flex-md-row`.
-2. **Custom Styling**:
-   - Palette: Cyan/Emerald (`#38bdf8`, `#10b981`), Obsidian Navy (`#0b0f19`), Glassmorphism.
-   - Micro-interactions: `@keyframes pulseGlow`, `@keyframes statusFadeIn`, smooth scrolling, hover scaling.
-   - Fonts & Icons: Google Fonts (`Inter`, `Fira Code`) + FontAwesome v6.4.0.
-3. **Form Handling with JS**:
-   - Live client-side validation for Login & Registration forms.
-   - Live **Password Match check** (`confirm_password === password`).
-   - Password strength calculation meter bar.
-   - **Show/Hide Password toggle** with icon state switching.
-4. **AJAX Basics**:
-   - Real-time debounced AJAX availability checker (`ajax_check_user.php`).
-   - Asynchronous form submission (`ajax_auth.php`) using native `fetch()` API without page reloads.
-5. **Deliverables**:
-   - Responsive Login & Registration UI page (`auth.html`).
-   - PHP AJAX backend scripts & updated MySQL database schema (`users` table).
+1. **Database Design & 3NF Normalization**:
+   - Normalized relational structure (`roles` and `users` tables connected via foreign key `users.role_id` -> `roles.id`).
+   - Seeding roles: `1` = `Admin` (full system access), `2` = `User` (standard profile access).
+2. **CRUD Operations**:
+   - **Create**: Add new user with validation & role assignment.
+   - **Read**: Render formatted HTML/Bootstrap data grid table (`admin_users.php`).
+   - **Update**: Modal form to edit user records and roles.
+   - **Delete**: Popup confirmation modal preventing accidental deletions.
+3. **Session Authentication & RBAC**:
+   - Session management (`$_SESSION`) for Login/Logout state persistence.
+   - Role-Based Access Control enforcing Admin privileges for CRUD dashboard (`requireAdmin()`) and User privileges for Profile (`requireLogin()`).
+4. **Security Hardening**:
+   - All queries executed using `mysqli_prepare` prepared statements to prevent SQL Injection.
+   - Server-side input validation and sanitization.
+   - BCRYPT password encryption (`password_hash` & `password_verify`).
+5. **Profile Management**:
+   - Edit Profile page (`profile.php`).
+   - Profile picture upload into `assets/uploads/` with file extension (.jpg, .png, .webp), MIME type, and 2MB file size validation.
 
 ---
 
-## 1. Environment Setup
+## Database Normalization & ER Diagram
 
-### A. Installing XAMPP (Recommended for Windows)
-1. Download XAMPP for Windows from the official website: [Apache Friends](https://www.apachefriends.org/).
-2. Run the installer and select Apache, MySQL, PHP, and phpMyAdmin.
-3. Install XAMPP into `C:\xampp`.
-4. Open the **XAMPP Control Panel** and click **Start** next to **Apache** and **MySQL**.
+```
++-----------------------------------+       +-----------------------------------+
+|               roles               |       |               users               |
++-----------------------------------+       +-----------------------------------+
+| id (PK, INT, AUTO_INCREMENT)      |<------| id (PK, INT, AUTO_INCREMENT)      |
+| role_name (VARCHAR 50, UNIQUE)    |   1:N | role_id (FK -> roles.id, INT)     |
+| description (VARCHAR 255)         |       | username (VARCHAR 50, UNIQUE)     |
+| created_at (TIMESTAMP)            |       | email (VARCHAR 100, UNIQUE)       |
++-----------------------------------+       | password_hash (VARCHAR 255)       |
+                                            | full_name (VARCHAR 100)           |
+                                            | title (VARCHAR 100)               |
+                                            | phone (VARCHAR 30)                |
+                                            | bio (TEXT)                        |
+                                            | avatar_url (VARCHAR 255)          |
+                                            | created_at (TIMESTAMP)            |
+                                            +-----------------------------------+
+```
+
+- **1NF**: Atomic field values, primary keys defined.
+- **2NF**: No partial dependencies; non-key columns depend entirely on primary key `id`.
+- **3NF**: Role descriptors isolated into separate `roles` table eliminating transitive dependencies.
 
 ---
 
