@@ -1,0 +1,23 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Web Server & Temporary logs
+*.log
+error_log
+access_log
+
+# Uploads & User generated media
+assets/uploads/*
+!assets/uploads/.gitkeep
+
+# Sensitive config files
+config/env.php
+config/secrets.php
