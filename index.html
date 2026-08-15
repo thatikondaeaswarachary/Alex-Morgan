@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio Website - Full Stack PHP & MySQL Web Developer Task 1 Deliverable">
+    <title>Alex Morgan | Full Stack Web Developer Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar-header" id="header">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo">
+                <span class="logo-accent">&lt;/&gt;</span> Alex.Dev
+            </a>
+            
+            <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About</a></li>
+                    <li><a href="#skills" class="nav-link"><i class="fa-solid fa-code"></i> Skills</a></li>
+                    <li><a href="#projects" class="nav-link"><i class="fa-solid fa-layer-group"></i> Projects</a></li>
+                    <li><a href="#multimedia" class="nav-link"><i class="fa-solid fa-photo-film"></i> Media</a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+                    <li><a href="hello.php" class="nav-link highlight-link" target="_blank"><i class="fa-brands fa-php"></i> PHP Demo</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Light/Dark Theme">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Mobile Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="badge-pill">
+                        <span class="pulse-dot"></span> Available for Full Stack Projects
+                    </div>
+                    <h1 class="hero-title">
+                        Building Modern Web Apps with <span class="gradient-text">PHP, MySQL & JS</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Hi, I'm Alex Morgan. A passionate Full Stack Web Developer specializing in clean UI design, robust PHP backends, and responsive database applications.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            View My Work <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            Get In Touch <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a href="db_test.php" class="btn btn-outline" target="_blank">
+                            <i class="fa-solid fa-database"></i> DB Status
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-card-glass">
+                        <div class="code-card-header">
+                            <div class="mac-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="file-name">developer.php</span>
+                        </div>
+                        <pre class="code-block"><code><span class="kwd">&lt;?php</span>
+<span class="class">class</span> <span class="type">Developer</span> {
+    <span class="kwd">public</span> <span class="var">$name</span> = <span class="str">"Alex Morgan"</span>;
+    <span class="kwd">public</span> <span class="var">$skills</span> = [<span class="str">"HTML5"</span>, <span class="str">"CSS3"</span>, <span class="str">"JS"</span>, <span class="str">"PHP"</span>, <span class="str">"MySQL"</span>];
+    
+    <span class="kwd">public function</span> <span class="func">buildAwesomeApp</span>() {
+        <span class="kwd">return</span> <span class="str">"High Performance Web App"</span>;
+    }
+}
+<span class="var">$dev</span> = <span class="kwd">new</span> <span class="type">Developer</span>();
+<span class="func">echo</span> <span class="var">$dev</span>-><span class="func">buildAwesomeApp</span>();
+<span class="kwd">?&gt;</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section (HTML5 Semantic Article & Section) -->
+        <section class="about-section" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">Full Stack Foundations & Environment Setup</p>
+                </div>
+                <div class="about-grid">
+                    <article class="about-card">
+                        <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Clean Code & Standards</h3>
+                        <p>
+                            Focusing on standard HTML5 semantics, modular CSS3 architecture, vanilla JavaScript (ES6+), and structured PHP scripting with MySQL integration.
+                        </p>
+                    </article>
+                    <article class="about-card">
+                        <div class="card-icon"><i class="fa-solid fa-server"></i></div>
+                        <h3>Local Dev Environment</h3>
+                        <p>
+                            Configured Apache web server and MySQL database manager via XAMPP / phpMyAdmin, tested using native PHP scripts and custom database drivers.
+                        </p>
+                    </article>
+                    <article class="about-card">
+                        <div class="card-icon"><i class="fa-brands fa-git-alt"></i></div>
+                        <h3>Git & Version Control</h3>
+                        <p>
+                            Proficient in Git workflows: <code>git init</code>, staging changes, atomic commits, branching, and automated GitHub Pages deployment pipelines.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section with HTML Table Formatting -->
+        <section class="skills-section" id="skills">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Skill Matrix</h2>
+                    <p class="section-subtitle">Formatted with HTML5 &lt;table&gt;, &lt;thead&gt;, &lt;tbody&gt;, and &lt;tfoot&gt;</p>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="skills-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Technology / Skill</th>
+                                <th>Core Features Covered</th>
+                                <th>Proficiency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="tag tag-html">Frontend</span></td>
+                                <td><strong>HTML5 Fundamentals</strong></td>
+                                <td>Semantic Tags (&lt;header&gt;, &lt;nav&gt;, &lt;article&gt;), Forms, Multimedia</td>
+                                <td>
+                                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width: 95%;">95%</div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag tag-css">Frontend</span></td>
+                                <td><strong>CSS3 & Layouts</strong></td>
+                                <td>Flexbox, CSS Grid, Glassmorphism, Animations, Responsive Media Queries</td>
+                                <td>
+                                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width: 90%;">90%</div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag tag-js">Frontend</span></td>
+                                <td><strong>JavaScript Basics</strong></td>
+                                <td>DOM Manipulation, Event Handling, Client Validation, LocalStorage</td>
+                                <td>
+                                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width: 85%;">85%</div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag tag-php">Backend</span></td>
+                                <td><strong>PHP Core Basics</strong></td>
+                                <td>Syntax, Arrays (Indexed/Associative/Multi), $_GET/$_POST, Include/Require</td>
+                                <td>
+                                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width: 80%;">80%</div></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag tag-sql">Database</span></td>
+                                <td><strong>MySQL & phpMyAdmin</strong></td>
+                                <td>CRUD Operations, Primary/Foreign Keys, mysqli_connect(), Schema Setup</td>
+                                <td>
+                                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width: 82%;">82%</div></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3"><strong>Average Stack Competency Rating</strong></td>
+                                <td><strong>86.4% Overall</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section with Interactive Category Filter -->
+        <section class="projects-section" id="projects">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">Interactive portfolio filter using JavaScript DOM events</p>
+                </div>
+
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="frontend">Frontend</button>
+                    <button class="filter-btn" data-filter="backend">Backend (PHP)</button>
+                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project Card 1 -->
+                    <article class="project-card" data-category="frontend">
+                        <div class="project-img-holder">
+                            <div class="project-gradient-bg bg-1"></div>
+                            <span class="project-category">Frontend</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Personal Portfolio Website</h3>
+                            <p>
+                                Responsive single-page application built with HTML5, CSS3, and JavaScript featuring dark mode theme toggle and live form validation.
+                            </p>
+                            <div class="tech-tags">
+                                <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> GitHub</a>
+                                <a href="#hero" class="card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 2 -->
+                    <article class="project-card" data-category="backend">
+                        <div class="project-img-holder">
+                            <div class="project-gradient-bg bg-2"></div>
+                            <span class="project-category">Backend</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>PHP & MySQL Contact Handler</h3>
+                            <p>
+                                Server-side form handler processing <code>$_POST</code> submissions, performing validation, and storing data into MySQL database via <code>mysqli</code>.
+                            </p>
+                            <div class="tech-tags">
+                                <span>PHP</span> <span>MySQL</span> <span>phpMyAdmin</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="hello.php" target="_blank" class="card-link"><i class="fa-brands fa-php"></i> Test Script</a>
+                                <a href="db_test.php" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> DB View</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 3 -->
+                    <article class="project-card" data-category="fullstack">
+                        <div class="project-img-holder">
+                            <div class="project-gradient-bg bg-3"></div>
+                            <span class="project-category">Full Stack</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>Full Stack CRUD User System</h3>
+                            <p>
+                                Prepared architecture for Task-3 user management suite featuring authentication, password hashing, roles, and profile image uploads.
+                            </p>
+                            <div class="tech-tags">
+                                <span>PHP</span> <span>MySQL</span> <span>AJAX</span> <span>JS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="README.md" target="_blank" class="card-link"><i class="fa-solid fa-book"></i> Readme</a>
+                                <a href="sql/schema.sql" target="_blank" class="card-link"><i class="fa-solid fa-file-code"></i> SQL Schema</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multimedia Section (<video>, <audio>, <iframe>) -->
+        <section class="multimedia-section" id="multimedia">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Multimedia Showcase</h2>
+                    <p class="section-subtitle">Demonstrating HTML5 &lt;video&gt;, &lt;audio&gt;, and responsive &lt;iframe&gt; integration</p>
+                </div>
+
+                <div class="media-grid">
+                    <!-- HTML5 Audio -->
+                    <div class="media-card">
+                        <h3><i class="fa-solid fa-headphones"></i> Audio Showcase</h3>
+                        <p>Embedded HTML5 Audio element with controls.</p>
+                        <audio controls class="custom-audio-player">
+                            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- HTML5 Video -->
+                    <div class="media-card">
+                        <h3><i class="fa-solid fa-video"></i> Video Player</h3>
+                        <p>Native HTML5 Video element with player controls.</p>
+                        <video controls poster="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600" class="custom-video-player">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Your browser does not support the video element.
+                        </video>
+                    </div>
+
+                    <!-- Responsive Iframe -->
+                    <div class="media-card span-2">
+                        <h3><i class="fa-solid fa-globe"></i> Responsive Iframe Embed</h3>
+                        <p>Interactive iframe loading Wikipedia Developer Reference.</p>
+                        <div class="iframe-container">
+                            <iframe src="https://en.m.wikipedia.org/wiki/Web_development" title="Web Development Reference" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section with Forms (Inputs, Select, Textarea, Radio, Checkbox, Client-side Validation) -->
+        <section class="contact-section" id="contact">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Contact & Interactive Form</h2>
+                    <p class="section-subtitle">HTML5 Form controls with JavaScript validation and PHP backend handling</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Let's Collaborate</h3>
+                        <p>Have a project in mind or interested in full-stack web development services? Send a message below!</p>
+
+                        <div class="info-list">
+                            <div class="info-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div>
+                                    <strong>Email Address</strong>
+                                    <p>alex.morgan@example.com</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div>
+                                    <strong>Location</strong>
+                                    <p>Localhost Dev Server (XAMPP / Apache)</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <div>
+                                    <strong>Backend Endpoint</strong>
+                                    <p><code>contact.php</code> (MySQL Insertion)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HTML5 Form with complete controls -->
+                    <form class="contact-form" id="portfolioContactForm" action="contact.php" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="name" placeholder="John Doe" required>
+                                <span class="error-msg" id="nameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailAddress">Email Address <span class="required">*</span></label>
+                                <input type="email" id="emailAddress" name="email" placeholder="john@example.com" required>
+                                <span class="error-msg" id="emailError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="serviceType">Service Inquired <span class="required">*</span></label>
+                                <select id="serviceType" name="service_type" required>
+                                    <option value="">-- Select Service --</option>
+                                    <option value="Frontend UI Development">Frontend UI Development</option>
+                                    <option value="PHP Backend Integration">PHP Backend Integration</option>
+                                    <option value="MySQL Database Architecture">MySQL Database Architecture</option>
+                                    <option value="Full Stack Website">Full Stack Website (Task 1-3)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject <span class="required">*</span></label>
+                                <input type="text" id="subject" name="subject" placeholder="Project Discussion" required>
+                            </div>
+                        </div>
+
+                        <!-- Radio Buttons -->
+                        <div class="form-group">
+                            <label>Project Urgency Level:</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="urgency" value="Standard" checked> Standard Timeline
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="urgency" value="High Priority"> High Priority
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="urgency" value="Urgent"> Urgent (1-2 Days)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label for="messageContent">Project Details / Message <span class="required">*</span></label>
+                            <textarea id="messageContent" name="message" rows="5" placeholder="Describe your project requirements..." required></textarea>
+                            <span class="error-msg" id="messageError"></span>
+                        </div>
+
+                        <!-- Password Toggle Demo (For Task-1 JS Validation practice) -->
+                        <div class="form-group password-demo-box">
+                            <label for="demoPassword"><i class="fa-solid fa-lock"></i> Account Demo Password (JS Live Match Check)</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="demoPassword" placeholder="Enter password (min 6 chars)">
+                                <button type="button" id="togglePasswordBtn" class="pwd-toggle-btn"><i class="fa-solid fa-eye"></i></button>
+                            </div>
+                            <span class="pwd-strength" id="pwdStrengthMsg"></span>
+                        </div>
+
+                        <!-- Checkbox -->
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletterCheck" name="newsletter" value="1">
+                                Subscribe to full-stack project updates and PHP/MySQL tutorials
+                            </label>
+                        </div>
+
+                        <div class="form-status" id="formStatusMsg"></div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                            <span>Submit Message</span> <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2026 Alex Morgan. Built for PHP & MySQL Full Stack Web Development (Task 1).</p>
+            </div>
+            <div class="footer-right">
+                <a href="#hero" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
