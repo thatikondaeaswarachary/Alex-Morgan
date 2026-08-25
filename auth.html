@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Task 2 Deliverable - Interactive Login & Registration UI with Bootstrap 5, Custom CSS, JS Validation, and AJAX PHP Endpoints">
+    <title>Task 2: Interactive Auth UI & Frontend Development | Alex Morgan</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Auth Styles -->
+    <link rel="stylesheet" href="assets/css/auth-styles.css">
+</head>
+<body class="auth-body">
+
+    <!-- Reusable Header & Navigation Bar (Bootstrap Navbar + Custom Styling) -->
+    <nav class="navbar navbar-expand-lg auth-navbar sticky-top">
+        <div class="container">
+            <a class="brand-logo-custom" href="index.html">
+                <span class="logo-badge">&lt;/&gt;</span> Alex.Dev <span class="badge bg-info text-dark ms-2 d-none d-md-inline-block">Task 2</span>
+            </a>
+
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#authNavbarNav" aria-controls="authNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars fs-4"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="authNavbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 my-2 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50 hover-cyan" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50 hover-cyan" href="index.html#skills"><i class="fa-solid fa-code"></i> Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50 hover-cyan" href="index.html#projects"><i class="fa-solid fa-layer-group"></i> Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-info btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#demoModal">
+                            <i class="fa-solid fa-circle-info"></i> Task 2 Specs
+                        </button>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <button class="btn btn-dark text-cyan border-cyan rounded-circle" id="authThemeToggle" title="Toggle Theme" style="width: 42px; height: 42px;">
+                            <i class="fa-solid fa-moon" id="authThemeIcon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Section: Dual Column Bootstrap 5 Layout -->
+    <main class="flex-grow-1 d-flex align-items-center py-5">
+        <div class="container">
+            <div class="row g-4 align-items-center justify-content-center">
+                
+                <!-- Left Column: Carousel & Feature Showcase (Visible on md and larger) -->
+                <div class="col-12 col-lg-6 d-none d-lg-block">
+                    <div class="auth-carousel-card pulse-card">
+                        
+                        <!-- Bootstrap 5 Carousel Component -->
+                        <div id="authCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
+                            <div class="carousel-indicators mb-0" style="bottom: -2rem;">
+                                <button type="button" data-bs-target="#authCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#authCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#authCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+
+                            <div class="carousel-inner">
+                                <!-- Slide 1: Bootstrap 5 Mastery -->
+                                <div class="carousel-item active">
+                                    <div class="feature-badge-icon">
+                                        <i class="fa-brands fa-bootstrap"></i>
+                                    </div>
+                                    <h3 class="fw-bold text-white mb-2">Bootstrap 5 Mastery</h3>
+                                    <p class="text-white-50">
+                                        Leveraging Bootstrap 5 responsive grid system (rows, columns, breakpoints), navbars, cards, modals, interactive carousels, and display utilities (<code>d-none</code>, <code>d-md-block</code>).
+                                    </p>
+                                    <div class="d-flex gap-2 mt-4 flex-wrap">
+                                        <span class="badge bg-secondary">Grid System</span>
+                                        <span class="badge bg-secondary">Modals & Cards</span>
+                                        <span class="badge bg-secondary">Responsive Utilities</span>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 2: Form Validation & JS -->
+                                <div class="carousel-item">
+                                    <div class="feature-badge-icon" style="background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%);">
+                                        <i class="fa-solid fa-user-shield"></i>
+                                    </div>
+                                    <h3 class="fw-bold text-white mb-2">Form Handling & Validation</h3>
+                                    <p class="text-white-50">
+                                        Comprehensive client-side JavaScript validation with password strength metrics, live confirm password match verification, and password visibility toggles.
+                                    </p>
+                                    <div class="d-flex gap-2 mt-4 flex-wrap">
+                                        <span class="badge bg-secondary">Password Match</span>
+                                        <span class="badge bg-secondary">Show/Hide Toggle</span>
+                                        <span class="badge bg-secondary">Strength Meter</span>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 3: AJAX & PHP Basics -->
+                                <div class="carousel-item">
+                                    <div class="feature-badge-icon" style="background: linear-gradient(135deg, #10b981 0%, #38bdf8 100%);">
+                                        <i class="fa-solid fa-bolt"></i>
+                                    </div>
+                                    <h3 class="fw-bold text-white mb-2">AJAX Real-Time Backend</h3>
+                                    <p class="text-white-50">
+                                        Asynchronous data fetching from PHP scripts (<code>ajax_check_user.php</code> & <code>ajax_auth.php</code>) without reloading the page. Live username and email availability checks.
+                                    </p>
+                                    <div class="d-flex gap-2 mt-4 flex-wrap">
+                                        <span class="badge bg-secondary">Fetch API</span>
+                                        <span class="badge bg-secondary">PHP Endpoints</span>
+                                        <span class="badge bg-secondary">Zero Page Reload</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Login & Registration Form Card -->
+                <div class="col-12 col-md-10 col-lg-6">
+                    <div class="auth-glass-card">
+                        
+                        <!-- Header & Title -->
+                        <div class="auth-header">
+                            <h2 class="auth-title" id="authCardTitle">Welcome Back</h2>
+                            <p class="auth-subtitle" id="authCardSubtitle">Sign in to access your portfolio dashboard & backend API</p>
+                        </div>
+
+                        <!-- Tab Navigation Pills -->
+                        <div class="auth-pills-container">
+                            <button type="button" class="auth-pill-btn active" id="tabLoginBtn">
+                                <i class="fa-solid fa-right-to-bracket"></i> Login Form
+                            </button>
+                            <button type="button" class="auth-pill-btn" id="tabRegisterBtn">
+                                <i class="fa-solid fa-user-plus"></i> Registration Form
+                            </button>
+                        </div>
+
+                        <!-- View 1: Login Form -->
+                        <div id="loginFormContainer">
+                            <div class="auth-alert" id="loginAlert" role="alert"></div>
+
+                            <form id="loginForm" novalidate>
+                                <!-- Username or Email -->
+                                <div class="mb-3">
+                                    <label for="loginIdentifier" class="form-label-custom">Username or Email</label>
+                                    <div class="input-group-custom">
+                                        <span class="input-icon-text"><i class="fa-solid fa-user"></i></span>
+                                        <input type="text" class="form-control-custom" id="loginIdentifier" name="username_or_email" placeholder="e.g. alexmorgan or alex@example.com" required>
+                                    </div>
+                                </div>
+
+                                <!-- Password with Show/Hide Toggle -->
+                                <div class="mb-3">
+                                    <div class="form-label-custom">
+                                        <span>Password</span>
+                                        <a href="#" class="text-info text-decoration-none small" data-bs-toggle="modal" data-bs-target="#demoModal">Forgot?</a>
+                                    </div>
+                                    <div class="input-group-custom d-flex align-items-center">
+                                        <span class="input-icon-text"><i class="fa-solid fa-lock"></i></span>
+                                        <input type="password" class="form-control-custom flex-grow-1" id="loginPassword" name="password" placeholder="••••••••" required>
+                                        <button type="button" class="pwd-toggle-btn toggle-pwd-btn" data-target="loginPassword" title="Show/Hide Password">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Remember Me Checkbox -->
+                                <div class="mb-4 d-flex justify-content-between align-items-center">
+                                    <div class="form-check">
+                                        <input class="form-check-input bg-dark border-secondary" type="checkbox" id="rememberMe" name="remember_me">
+                                        <label class="form-check-label text-white-50 small" for="rememberMe">Remember login</label>
+                                    </div>
+                                    <span class="badge bg-dark text-info border border-info small">AJAX Enabled</span>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn-auth-submit">
+                                    <span>Sign In Now</span> <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- View 2: Registration Form (Hidden by default) -->
+                        <div id="registerFormContainer" class="d-none">
+                            <div class="auth-alert" id="registerAlert" role="alert"></div>
+
+                            <form id="registerForm" novalidate>
+                                <!-- Full Name -->
+                                <div class="mb-3">
+                                    <label for="regFullName" class="form-label-custom">Full Name</label>
+                                    <div class="input-group-custom">
+                                        <span class="input-icon-text"><i class="fa-solid fa-id-card"></i></span>
+                                        <input type="text" class="form-control-custom" id="regFullName" name="full_name" placeholder="e.g. Alex Morgan" required>
+                                    </div>
+                                </div>
+
+                                <!-- Username with Live AJAX Check -->
+                                <div class="mb-3">
+                                    <label for="regUsername" class="form-label-custom">Username</label>
+                                    <div class="input-group-custom">
+                                        <span class="input-icon-text"><i class="fa-solid fa-at"></i></span>
+                                        <input type="text" class="form-control-custom" id="regUsername" name="username" placeholder="e.g. alexmorgan" required>
+                                    </div>
+                                    <div class="ajax-feedback-badge" id="usernameAjaxFeedback"></div>
+                                </div>
+
+                                <!-- Email Address with Live AJAX Check -->
+                                <div class="mb-3">
+                                    <label for="regEmail" class="form-label-custom">Email Address</label>
+                                    <div class="input-group-custom">
+                                        <span class="input-icon-text"><i class="fa-solid fa-envelope"></i></span>
+                                        <input type="email" class="form-control-custom" id="regEmail" name="email" placeholder="alex@example.com" required>
+                                    </div>
+                                    <div class="ajax-feedback-badge" id="emailAjaxFeedback"></div>
+                                </div>
+
+                                <!-- Password & Strength Bar -->
+                                <div class="mb-3">
+                                    <div class="form-label-custom">
+                                        <span>Create Password</span>
+                                        <span class="small" id="pwdStrengthLabel"></span>
+                                    </div>
+                                    <div class="input-group-custom d-flex align-items-center">
+                                        <span class="input-icon-text"><i class="fa-solid fa-lock"></i></span>
+                                        <input type="password" class="form-control-custom flex-grow-1" id="regPassword" name="password" placeholder="At least 6 characters" required>
+                                        <button type="button" class="pwd-toggle-btn toggle-pwd-btn" data-target="regPassword" title="Show/Hide Password">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="strength-meter-outer">
+                                        <div class="strength-meter-bar" id="pwdStrengthBar"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Confirm Password & Live Match Check -->
+                                <div class="mb-3">
+                                    <label for="regConfirmPassword" class="form-label-custom">Confirm Password</label>
+                                    <div class="input-group-custom d-flex align-items-center">
+                                        <span class="input-icon-text"><i class="fa-solid fa-shield-check"></i></span>
+                                        <input type="password" class="form-control-custom flex-grow-1" id="regConfirmPassword" name="confirm_password" placeholder="Re-enter password" required>
+                                        <button type="button" class="pwd-toggle-btn toggle-pwd-btn" data-target="regConfirmPassword" title="Show/Hide Password">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="ajax-feedback-badge" id="pwdMatchFeedback"></div>
+                                </div>
+
+                                <!-- Terms & Conditions Checkbox -->
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input bg-dark border-secondary" type="checkbox" id="agreeTerms" name="agree_terms" required>
+                                        <label class="form-check-label text-white-50 small" for="agreeTerms">
+                                            I agree to the <a href="#" class="text-info" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a> & <a href="#" class="text-info" data-bs-toggle="modal" data-bs-target="#termsModal">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn-auth-submit">
+                                    <span>Create Account</span> <i class="fa-solid fa-user-check"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="py-4 border-top border-secondary border-opacity-25 mt-auto">
+        <div class="container text-center text-white-50 small">
+            <p class="mb-0">
+                © 2026 Alex Morgan | Task-2 Interactive UI & Frontend Development (Days 13–24). Built with Bootstrap 5, Custom CSS, JS & PHP AJAX.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Modal Component 1: Task 2 Requirements Modal -->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark text-white border-secondary">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-info" id="demoModalLabel">
+                        <i class="fa-solid fa-layer-group"></i> Task 2 Feature Requirements Breakdown
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded bg-black bg-opacity-40">
+                                <h6 class="text-info fw-bold mb-2"><i class="fa-brands fa-bootstrap"></i> 1. Bootstrap 5 Mastery</h6>
+                                <ul class="small text-white-50 mb-0 ps-3">
+                                    <li>Grid System (Rows, Cols, Breakpoints)</li>
+                                    <li>Navbar, Carousel, Cards, Modals, Buttons</li>
+                                    <li>Responsive Utilities (d-none, d-md-block)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded bg-black bg-opacity-40">
+                                <h6 class="text-info fw-bold mb-2"><i class="fa-solid fa-palette"></i> 2. Custom Styling</h6>
+                                <ul class="small text-white-50 mb-0 ps-3">
+                                    <li>Custom branding color palette & glassmorphism</li>
+                                    <li>Smooth scrolling & micro hover animations</li>
+                                    <li>Google Fonts (Inter, Fira Code) & Icons</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded bg-black bg-opacity-40">
+                                <h6 class="text-info fw-bold mb-2"><i class="fa-solid fa-shield-halved"></i> 3. JS Form Handling</h6>
+                                <ul class="small text-white-50 mb-0 ps-3">
+                                    <li>Login & registration form validation</li>
+                                    <li>Live password match verification</li>
+                                    <li>Show / Hide password visibility toggle</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded bg-black bg-opacity-40">
+                                <h6 class="text-info fw-bold mb-2"><i class="fa-solid fa-network-wired"></i> 4. AJAX & PHP Basics</h6>
+                                <ul class="small text-white-50 mb-0 ps-3">
+                                    <li>Fetch API data from PHP without page reload</li>
+                                    <li>Real-time username & email duplicate check</li>
+                                    <li>Asynchronous POST handling with JSON output</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+                    <a href="index.html" class="btn btn-info rounded-pill px-4">Back to Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 Modal Component 2: Terms of Service Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-secondary">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-info" id="termsModalLabel">
+                        <i class="fa-solid fa-file-contract"></i> Terms of Service & Privacy
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-white-50 small">
+                    <p>Welcome to Alex Morgan's Task-2 Developer Portal. By registering an account, you agree to the following demo terms:</p>
+                    <ol>
+                        <li>Data submitted during registration is processed via AJAX and stored securely or validated in demo mode.</li>
+                        <li>Passwords are hashed server-side using <code>password_hash()</code> with BCRYPT.</li>
+                        <li>This platform is part of Task 2 Full Stack Web Development course assignment.</li>
+                    </ol>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-info rounded-pill px-4" data-bs-dismiss="modal">I Understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Auth Logic -->
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>
