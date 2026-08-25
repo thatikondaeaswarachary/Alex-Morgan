@@ -8,7 +8,7 @@ git init
 git config user.name "Alex Morgan"
 git config user.email "alex.morgan@example.com"
 
-echo Commit 1: Initial environment setup & README
+echo Commit 1: Initial environment setup and README
 git add README.md .gitignore
 git commit -m "docs: add initial project setup, environment guides and README" --date="2026-08-10T10:00:00"
 
@@ -48,7 +48,7 @@ echo Commit 10: Task 2 Database schema updates with users table
 git add sql/schema.sql
 git commit -m "feat(database): add users table schema and test seed data for Task 2" --date="2026-08-20T10:00:00"
 
-echo Commit 11: Added AJAX username & email check endpoint
+echo Commit 11: Added AJAX username and email check endpoint
 git add ajax_check_user.php
 git commit -m "feat(ajax): add ajax_check_user.php for real-time username and email availability checking" --date="2026-08-21T14:30:00"
 
@@ -56,19 +56,19 @@ echo Commit 12: Added AJAX authentication handler
 git add ajax_auth.php
 git commit -m "feat(ajax): add ajax_auth.php for asynchronous login and registration handling with BCRYPT hashing" --date="2026-08-22T11:15:00"
 
-echo Commit 13: Added Bootstrap 5 & custom Auth UI stylesheet
+echo Commit 13: Added Bootstrap 5 plus custom Auth UI stylesheet
 git add assets/css/auth-styles.css
 git commit -m "style(css): add auth-styles.css with Bootstrap 5 overrides, glassmorphism, and keyframe animations" --date="2026-08-23T16:00:00"
 
-echo Commit 14: Added Task 2 JavaScript validation & AJAX logic
+echo Commit 14: Added Task 2 JavaScript validation and AJAX logic
 git add assets/js/auth.js
 git commit -m "feat(js): add auth.js for tab switching, password match/strength checking, and async fetch requests" --date="2026-08-24T13:45:00"
 
-echo Commit 15: Added Task 2 Auth UI deliverable page & updated portfolio integration
+echo Commit 15: Added Task 2 Auth UI deliverable page and updated portfolio integration
 git add auth.html index.html README.md setup_git_history.bat
 git commit -m "feat(ui): complete Task 2 deliverable (auth.html) with Bootstrap 5 grid, carousel, modals, and AJAX form handling" --date="2026-08-25T17:30:00"
 
 echo ===================================================
-echo  Task 1 & Task 2 Git history created successfully!
+echo  Task 1 and Task 2 Git history created successfully!
 echo ===================================================
 git log --oneline
