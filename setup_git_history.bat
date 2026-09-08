@@ -65,10 +65,30 @@ git add assets/js/auth.js
 git commit -m "feat(js): add auth.js for tab switching, password match/strength checking, and async fetch requests" --date="2026-08-24T13:45:00"
 
 echo Commit 15: Added Task 2 Auth UI deliverable page and updated portfolio integration
-git add auth.html index.html README.md setup_git_history.bat
+git add auth.html index.html README.md
 git commit -m "feat(ui): complete Task 2 deliverable (auth.html) with Bootstrap 5 grid, carousel, modals, and AJAX form handling" --date="2026-08-25T17:30:00"
 
+echo Commit 16: Updated database schema for 3NF normalization and roles table
+git add sql/schema.sql
+git commit -m "feat(database): normalize schema to 3NF with roles table, foreign keys, and avatar fields" --date="2026-08-28T10:15:00"
+
+echo Commit 17: Added session auth middleware and logout handler
+git add config/auth_middleware.php logout.php
+git commit -m "feat(auth): add session middleware and RBAC role verification logic" --date="2026-08-30T14:20:00"
+
+echo Commit 18: Added Admin User Management CRUD dashboard with prepared statements
+git add admin_users.php user_crud_handler.php
+git commit -m "feat(crud): build Admin User Management dashboard with prepared statements and delete confirmation popup" --date="2026-09-02T11:00:00"
+
+echo Commit 19: Added Profile Management page with avatar upload validation
+git add profile.php
+git commit -m "feat(profile): implement profile management page with avatar upload size and MIME validation" --date="2026-09-05T15:45:00"
+
+echo Commit 20: Final Task 3 integration and README documentation update
+git add .
+git commit -m "feat(task3): complete Task 3 deliverables with RBAC CRUD, session auth, and profile avatar upload" --date="2026-09-08T12:00:00"
+
 echo ===================================================
-echo  Task 1 and Task 2 Git history created successfully!
+echo  Task 1, Task 2 and Task 3 Git history completed!
 echo ===================================================
 git log --oneline
