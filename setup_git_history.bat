@@ -88,7 +88,27 @@ echo Commit 20: Final Task 3 integration and README documentation update
 git add .
 git commit -m "feat(task3): complete Task 3 deliverables with RBAC CRUD, session auth, and profile avatar upload" --date="2026-09-08T12:00:00"
 
+echo Commit 21: Added E-Commerce database schema with categories, products, orders, and indexes
+git add sql/schema.sql
+git commit -m "feat(database): add categories, products, orders tables with foreign keys and performance indexes" --date="2026-09-08T13:00:00"
+
+echo Commit 22: Added DevGear Storefront catalog and AJAX cart/checkout handler
+git add store.php cart_handler.php
+git commit -m "feat(ecommerce): build DevGear storefront catalog with search, category filtering, and cart checkout" --date="2026-09-08T14:00:00"
+
+echo Commit 23: Added Customer Orders Dashboard and Password Reset endpoint
+git add user_orders.php forgot_password.php
+git commit -m "feat(customer): build Customer Orders Dashboard and forgot password reset workflow" --date="2026-09-08T14:30:00"
+
+echo Commit 24: Added Admin Analytics Dashboard and Product CRUD management
+git add admin_dashboard.php product_crud_handler.php
+git commit -m "feat(admin): build Admin Business Intelligence dashboard, product CRUD, and order status manager" --date="2026-09-08T15:00:00"
+
+echo Commit 25: Complete Task 4 deliverable package and documentation
+git add .
+git commit -m "feat(task4): complete Task 4 Real-World Full Stack E-Commerce & Business Intelligence suite" --date="2026-09-08T15:20:00"
+
 echo ===================================================
-echo  Task 1, Task 2 and Task 3 Git history completed!
+echo  All Course Tasks (1 to 4) Git history completed!
 echo ===================================================
 git log --oneline
