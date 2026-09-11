@@ -5,11 +5,13 @@ Welcome to the **PHP & MySQL Full Stack Web Development** project repository. Th
 - **Task 2 (Days 13–24)**: Interactive UI & Frontend Development (Bootstrap 5, JS Validation, Real-time AJAX PHP Endpoints & Responsive Login/Registration UI).
 - **Task 3 (Days 25–36)**: Backend Development & Database Integration (Database Normalization & ER Diagram, User CRUD Operations, Session Auth & RBAC, Security Prepared Statements, and Profile Picture Upload).
 - **Task 4 (Days 37–48)**: Real-World Full Stack Project (DevGear E-Commerce Platform, Products & Orders Database Setup with Foreign Keys & Indexes, Customer Orders Dashboard, AJAX Cart/Checkout Engine, Admin Analytics Dashboard, and Product CRUD).
+- **Task 5 (Days 49–60)**: Capstone Project & Deployment (Full-Scale Application, Email OTP Auth, Chart.js Analytics, Free/Cloud Hosting Deployment, GitHub Live Integration, PDF Report & 12-min Video Presentation).
 
 ---
 
 ## 📋 Table of Contents
-1. [Task 4 Specification Overview](#task-4-specification-overview)
+1. [Task 5 Specification Overview (Capstone & Deployment)](#task-5-specification-overview-days-4960)
+2. [Task 4 Specification Overview](#task-4-specification-overview)
 2. [Task 3 Specification Overview](#task-3-specification-overview)
 3. [Task 2 Specification Overview](#task-2-specification-overview)
 4. [Environment Setup (XAMPP / WAMP / Apache / MySQL)](#1-environment-setup)
@@ -21,6 +23,35 @@ Welcome to the **PHP & MySQL Full Stack Web Development** project repository. Th
    - [Product Management CRUD & Order Status Updater](#product-management-crud--order-status-updater)
 7. [Project Structure](#5-project-structure)
 8. [Running the Project Locally](#6-running-the-project-locally)
+
+## Task 5 Specification Overview (Days 49–60)
+
+**Objective**: Independently design, build, and deploy a professional-grade capstone project (DevGear Full Stack E-Commerce & Business Intelligence Platform) to showcase complete industry readiness.
+
+### Key Steps & Execution Plan:
+
+1. **Project Selection**:
+   - Selected Project: **DevGear Tech E-Commerce & Business Intelligence Platform** (Full Stack PHP/MySQL).
+   - Core Modules: Customer Storefront, Asynchronous AJAX Shopping Cart, Orders Tracking Dashboard, Admin Revenue Analytics, and User Management.
+
+2. **Design Phase**:
+   - **Database ER Diagram**: Normalized 3NF Schema (`users`, `roles`, `categories`, `products`, `orders`, `order_items`) with Foreign Keys and Indexing (`idx_products_cat_price`, `idx_orders_user`).
+   - **Wireframes & Layouts**: Responsive UI across Home (`index.html`), Store (`store.php`), Auth/OTP Verification (`auth.html`), Customer Dashboard (`user_orders.php`), and Admin Analytics (`admin_dashboard.php`).
+
+3. **Development Phase**:
+   - **Authentication with Email OTP Verification**: Real-time async AJAX user verification (`ajax_check_user.php`, `ajax_auth.php`) and email verification flow.
+   - **Core Modules**: Dynamic product filtering, stock tracking, cart management (`cart_handler.php`), and order status updating (`admin_dashboard.php`).
+   - **AJAX Real-time Search & Filtering**: Instant product lookup by keyword & category without full page reload.
+   - **Analytics Dashboard (Chart.js)**: Interactive visual analytics displaying gross revenue, monthly sales trends, order status breakdown, and top-selling tech category metrics.
+
+4. **Deployment Phase**:
+   - **Hosting Platform**: Configured for deployment on free/cloud PHP hosting (000webhost / InfinityFree / Hostinger / Render).
+   - **GitHub Continuous Deployment**: Linked GitHub Repository (`main` branch) with production web host for continuous integration and automatic updates.
+
+5. **Final Submission & Deliverables**:
+   - **Project Report (PDF)**: Comprehensive technical manual including architecture overview, ER diagrams, security model, screenshot walkthroughs, and REST/AJAX API specifications.
+   - **12-Minute Video Demonstration**: Structured video walkthrough formatted for LinkedIn portfolio showcase.
+   - **Submission Package**: Live Production URL + Public GitHub Repository + Detailed Project Report PDF.
 
 ---
 
